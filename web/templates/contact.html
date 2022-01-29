@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+{%block title%}Hire Me{%endblock title%}
+{%block meta_description%}This is the website of Malate friday a Freelancer/Web Developer{%endblock meta_description%}
+{% load static %}
+{%block content%}
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href=" {% static 'web/img/favicon.png' %} " type="image/png">
+        <title>MeetMe Personal</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{% static 'web/css/bootstrap.css' %} ">
+        <link rel="stylesheet" href="{% static 'web/vendors/linericon/style.css' %} ">
+        <link rel="stylesheet" href="{% static 'web/css/font-awesome.min.css' %} ">
+        <link rel="stylesheet" href="{% static 'web/vendors/owl-carousel/owl.carousel.min.css' %} ">
+        <link rel="stylesheet" href="{% static 'web/vendors/lightbox/simpleLightbox.css' %} ">
+        <link rel="stylesheet" href="{% static 'web/vendors/nice-select/css/nice-select.css' %} ">
+        <link rel="stylesheet" href="{% static 'web/vendors/animate-css/animate.css' %} ">
+        <link rel="stylesheet" href="{% static 'web/vendors/popup/magnific-popup.css' %} ">
+        <!-- main css -->
+        <link rel="stylesheet" href="{% static 'web/css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'web/css/responsive.css' %}">
+    </head>
+    <body>
+        
+        <!--================Header Menu Area =================-->
+      
+        <!--================Header Menu Area =================-->
+        
+        <!--================Home Banner Area =================-->
+        <section class="banner_area">
+            <div class="box_1620">
+				<div class="banner_inner d-flex align-items-center">
+					<div class="container">
+						<div class="banner_content text-center">
+							<h2>Hire Me</h2>
+							<div class="page_link">
+								<a href="{% url 'home' %}">Home</a>
+								<a href="{% url 'contact' %}">Hire Me</a>
+							</div>
+						</div>
+					</div>
+				</div>
+            </div>
+        </section>
+        <!--================End Home Banner Area =================-->
+        
+        <!--================Contact Area =================-->
+        <section class="contact_area p_120">
+            <div class="container">
+                <p><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2378.426156148839!2d28.88697214595836!3d-11.188947539795103!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x190cd936b88fa2e1%3A0xd698d9c6b8dc4ee2!2sfridays!5e0!3m2!1sen!2szm!4v1643448314616!5m2!1sen!2szm" width="1100" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe></p>
+                <br/><br/><br/>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="contact_info">
+                            <div class="info_item">
+                                <i class="lnr lnr-home"></i>
+                                <h6>Luapula, Zambia</h6>
+                                <p>Mansa</p>
+                            </div>
+                            <div class="info_item">
+                                <i class="lnr lnr-phone-handset"></i>
+                                <h6><a href="#">(+260) 950 037 507</a></h6>
+                                <p>Mon to Fri 6 hr to 18 hrs</p>
+                            </div>
+                            <div class="info_item">
+                                <i class="lnr lnr-envelope"></i>
+                                <h6><a href="#">malatefriday12@gmail.com</a></h6>
+                                <p>hire me anytime!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <form class="row contact_form" action="{% url 'contact' %}" method="post" id="contactForm" novalidate="novalidate">
+                            {% csrf_token %}
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter email address">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Enter Subject">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <textarea class="form-control" name="message" id="message" rows="1" placeholder="Enter Message"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12 text-right">
+                                <button type="submit" value="submit" class="btn submit_btn">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--================Contact Area =================-->
+        
+        <!--================Footer Area =================-->
+        <!--================End Footer Area =================-->
+        
+        <!--================Contact Success and Error message Area =================-->
+        <div id="success" class="modal modal-message fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <i class="fa fa-close"></i>
+                        </button>
+                        <h2>Thank you</h2>
+                        <p>Your message is successfully sent...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modals error -->
+
+        <div id="error" class="modal modal-message fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <i class="fa fa-close"></i>
+                        </button>
+                        <h2>Sorry !</h2>
+                        <p> Something went wrong </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--================End Contact Success and Error message Area =================-->
+        
+        
+        
+        
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="{% static 'web/js/jquery-3.3.1.min.js' %}"></script>
+        <script src="{% static 'web/js/popper.js' %}"></script>
+        <script src="{% static 'web/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'web/js/stellar.js' %}"></script>
+        <script src="{% static 'web/vendors/lightbox/simpleLightbox.min.js' %}"></script>
+        <script src="{% static 'web/vendors/nice-select/js/jquery.nice-select.min.js' %}"></script>
+        <script src="{% static 'web/vendors/isotope/imagesloaded.pkgd.min.js' %}"></script>
+        <script src="{% static 'web/vendors/isotope/isotope.pkgd.min.js' %}"></script>
+        <script src="{% static 'web/vendors/popup/jquery.magnific-popup.min.js' %}"></script>
+        <script src="{% static 'web/vendors/owl-carousel/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'web/js/jquery.ajaxchimp.min.js' %}"></script>
+        <script src="{% static 'web/js/mail-script.js' %} "></script>
+        <script src="{% static 'web/vendors/counter-up/jquery.waypoints.min.js' %} "></script>
+        <script src="{% static 'web/vendors/counter-up/jquery.counterup.min.js' %} "></script>
+        <!-- contact js -->
+        <script src="{% static 'web/js/jquery.form.js' %} "></script>
+        <script src="{% static 'web/js/jquery.validate.min.js' %} "></script>
+        <script src="{% static 'web/js/contact.js' %} "></script>
+        <!--gmaps Js-->
+        <script src=""></script>
+        <script src="{% static 'web/js/gmaps.min.js' %} "></script>
+        <script src="{% static 'web/js/theme.js' %} "></script>
+    </body>
+</html>
+{% endblock content %}
