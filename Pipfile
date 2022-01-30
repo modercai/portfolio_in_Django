@@ -10,6 +10,7 @@ psycopg2-binary = "*"
 psycopg2 = "*"
 django-heroku = "*"
 python-decouple = "*"
+whitenoise = "==5.1.0"
 
 [dev-packages]
 
