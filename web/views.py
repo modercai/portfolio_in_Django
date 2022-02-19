@@ -1,7 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from .forms import ContactForm
 from django.core.mail import send_mail
-from django.http import HttpResponse, HttpResponseRedirect
 
 
 def home(request):
@@ -9,22 +8,23 @@ def home(request):
 
 
 def contact(request):
-    if request.method == "POST":
-        name = request.POST['name']
-        message_email = request.POST['email']
-        subject = request.POST['subject']
-        message = request.POST['message']
+    form = ContactForm(request.POST)
+    if form.is_valid():
+        if request.method == "POST":
+            name = request.POST['name']
+            message_email = request.POST['email']
+            subject = request.POST['subject']
+            message = request.POST['message']
 
-    # sending emails
-        send_mail(
-            subject,
-            message,
-            message_email,
-            ['friday@gmail.com'],
-        )
+            send_mail(
+                subject,
+                message,
+                message_email,
+                ['malatefriday12@gmail.com'],
+                fail_silently=False
+            )
         return render(request, 'contact.html', {'name': name})
-    else:
-        return render(request, 'contact.html', {})
+    return render(request, 'contact.html', {'form': form})
 
 
 def about_us(request):
