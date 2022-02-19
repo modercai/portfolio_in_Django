@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 from decouple import config
 import os
-import django-heroku
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -131,9 +130,9 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-'''
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-'''
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -145,5 +144,3 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'malatefriday12@gmail.com'
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = True
-
-django_heroku.settings(locals())
