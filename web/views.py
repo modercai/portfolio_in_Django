@@ -11,15 +11,27 @@ def contact(request):
     form = ContactForm(request.POST)
     if form.is_valid():
         if request.method == "POST":
-            name = request.POST['name']
-            message_email = request.POST['email']
-            subject = request.POST['subject']
-            message = request.POST['message']
+            name = request.POST.get('name')
+            message_email = request.POST.get('email')
+            subject = request.POST.get('subject')
+            message = request.POST.get('message')
+
+            data = {
+                'name': name,
+                'email': message_email,
+                'subject': subject,
+                'message': message,
+            }
+            message = '''
+            New message: {}
+
+            From:{}
+            '''.format(data['message'], data['email'])
 
             send_mail(
-                subject,
+                data['subject'],
                 message,
-                message_email,
+                '',
                 ['malatefriday12@gmail.com'],
                 fail_silently=False
             )
